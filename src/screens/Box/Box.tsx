@@ -67,7 +67,7 @@ const products: Product[] = [
       <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
         With nearly a decade of hands-on experience in the live music and entertainment industry,{" "}
         <strong>Lena</strong> has worked with some of the biggest names in the business –
-        <strong> Paul McCartney</strong>, <strong>P!NK</strong>, <strong>Robbie Williams</strong>,{" "}
+        <strong> The Red Hot Chili Peppers</strong>, <strong>Tom Jones</strong>,{" "}
         <strong>Shania Twain</strong>, and high-profile productions like the{" "}
         <strong>MTV Awards</strong> and collaborations involving <strong>Quentin Tarantino</strong>{" "}
         and the <strong>Bon Jovi family</strong>, to name a few.
