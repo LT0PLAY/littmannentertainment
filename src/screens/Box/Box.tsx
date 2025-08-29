@@ -330,8 +330,7 @@ export const Box = (): JSX.Element => {
               LITTMANN<span className="text-[#BFD9DC]"> INFOS</span>
             </h2>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 text-center">
-              A combination of modern streetwear with advanced technological wearables, for a unique
-              style.
+             © Copyright | LITTMANN-ENTERTAINMENT | All Rights Reserved
             </p>
 
             <div className="flex justify-center gap-4 mb-6">
