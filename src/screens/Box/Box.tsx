@@ -193,7 +193,7 @@ export const Box = (): JSX.Element => {
       <div className="flex h-full relative z-10">
         {/* Linke Spalte */}
         <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-end">
-          <div className="flex flex-col max-h-[70vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#BFD9DC]/70 scrollbar-track-transparent">
+          <div className="flex flex-col max-h-[85vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#BFD9DC]/70 scrollbar-track-transparent">
             <h2 className="text-xl sm:text-2xl font-light mb-4">{selectedProduct.title}</h2>
             {selectedProduct.description}
             <div className="flex gap-2 sm:gap-4 mt-6 flex-wrap">
