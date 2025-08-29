@@ -22,42 +22,6 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    title: "ABOUT ME",
-    description: (
-      <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
-        With nearly a decade of hands-on experience in the live music and entertainment industry,{" "}
-        <strong>Lena</strong> has worked with some of the biggest names in the business –
-        <strong> Paul McCartney</strong>, <strong>P!NK</strong>, <strong>Robbie Williams</strong>,{" "}
-        <strong>Shania Twain</strong>, and high-profile productions like the{" "}
-        <strong>MTV Awards</strong> and collaborations involving <strong>Quentin Tarantino</strong>{" "}
-        and the <strong>Bon Jovi family</strong>, to name a few.
-        <br />
-        <br />
-        From national productions to international touring,
-        <br />
-        <br />
-        Lena’s career has been built on <strong>precision</strong>, <strong>discretion</strong>, and
-        deep industry insight. Her background spans from <strong>artist liaison</strong>,{" "}
-        <strong>tour logistics</strong>, and high-level <strong>event coordination</strong> – making
-        her uniquely positioned to lead <strong>Littmann Entertainment</strong> with both heart and
-        strategy.
-      </p>
-    ),
-    image: "LenaLittmann.webp",
-    background: "Live_Conzert.webp",
-    thumbnail: "/AboutMe.webp",
-    instagram: "https://www.instagram.com/littmannentertainment/",
-    buttons: [
-      { label: "ABOUT ME →", url: "/about", external: false },
-      {
-        label: "INSTAGRAM →",
-        url: "https://www.instagram.com/littmannentertainment/",
-        external: true,
-      },
-    ],
-  },
-  {
-    id: 2,
     title: "ABOUT US",
     description: (
       <div className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify space-y-6">
@@ -94,6 +58,42 @@ const products: Product[] = [
     buttons: [
       { label: "OUR STORY →", url: "/story", external: false },
       { label: "KEINE AHNUNG →", url: "/contact", external: false },
+    ],
+  },
+  {
+    id: 2,
+    title: "ABOUT ME",
+    description: (
+      <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
+        With nearly a decade of hands-on experience in the live music and entertainment industry,{" "}
+        <strong>Lena</strong> has worked with some of the biggest names in the business –
+        <strong> Paul McCartney</strong>, <strong>P!NK</strong>, <strong>Robbie Williams</strong>,{" "}
+        <strong>Shania Twain</strong>, and high-profile productions like the{" "}
+        <strong>MTV Awards</strong> and collaborations involving <strong>Quentin Tarantino</strong>{" "}
+        and the <strong>Bon Jovi family</strong>, to name a few.
+        <br />
+        <br />
+        From national productions to international touring,
+        <br />
+        <br />
+        Lena’s career has been built on <strong>precision</strong>, <strong>discretion</strong>, and
+        deep industry insight. Her background spans from <strong>artist liaison</strong>,{" "}
+        <strong>tour logistics</strong>, and high-level <strong>event coordination</strong> – making
+        her uniquely positioned to lead <strong>Littmann Entertainment</strong> with both heart and
+        strategy.
+      </p>
+    ),
+    image: "LenaLittmann.webp",
+    background: "Live_Conzert.webp",
+    thumbnail: "/AboutMe.webp",
+    instagram: "https://www.instagram.com/littmannentertainment/",
+    buttons: [
+      { label: "ABOUT ME →", url: "/about", external: false },
+      {
+        label: "INSTAGRAM →",
+        url: "https://www.instagram.com/littmannentertainment/",
+        external: true,
+      },
     ],
   },
   {
@@ -135,10 +135,8 @@ export const Box = (): JSX.Element => {
   const handleMouseMove = (e: React.MouseEvent) => {
     const xFromRight = window.innerWidth - e.clientX;
 
-    // Solange der Cursor über dem Menü ist, niemals automatisch schließen
     if (isHoveringMenu.current) return;
 
-    // Öffnen bei Annäherung
     if (xFromRight <= 150) {
       if (closeTimer.current) {
         window.clearTimeout(closeTimer.current);
@@ -150,16 +148,13 @@ export const Box = (): JSX.Element => {
           openTimer.current = null;
         }, 120);
       }
-    }
-    // Schließen bei deutlicher Entfernung (mit Delay)
-    else if (xFromRight > 250) {
+    } else if (xFromRight > 250) {
       if (openTimer.current) {
         window.clearTimeout(openTimer.current);
         openTimer.current = null;
       }
       if (isMenuOpen && !closeTimer.current) {
         closeTimer.current = window.setTimeout(() => {
-          // nur schließen, wenn wir immer noch nicht über dem Menü sind
           if (!isHoveringMenu.current) setIsMenuOpen(false);
           closeTimer.current = null;
         }, 500);
@@ -196,7 +191,7 @@ export const Box = (): JSX.Element => {
       </header>
 
       <div className="flex h-full relative z-10">
-        {/* Linke Spalte (scrollbar Text) */}
+        {/* Linke Spalte */}
         <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-end">
           <div className="flex flex-col max-h-[70vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#BFD9DC]/70 scrollbar-track-transparent">
             <h2 className="text-xl sm:text-2xl font-light mb-4">{selectedProduct.title}</h2>
@@ -227,7 +222,7 @@ export const Box = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Rechte Fläche (Bild bleibt unberührt) */}
+        {/* Rechte Fläche */}
         <div className="flex-1 relative">
           <div className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-[#BFD9DC] opacity-20 blur-3xl pointer-events-none" />
           <img
@@ -237,7 +232,7 @@ export const Box = (): JSX.Element => {
           />
         </div>
 
-        {/* Menü – bleibt offen beim Hover */}
+        {/* Menü */}
         <div
           className={`menu-panel fixed right-0 top-0 h-full
                       w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px]
@@ -272,7 +267,6 @@ export const Box = (): JSX.Element => {
               style.
             </p>
 
-            {/* Datenschutz + Impressum mittig */}
             <div className="flex justify-center gap-4 mb-6">
               <Link to="/datenschutz" className="relative overflow-hidden rounded-full inline-block">
                 <Button className="relative bg-[#BFD9DC] text-black rounded-full px-6 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300">
@@ -287,7 +281,6 @@ export const Box = (): JSX.Element => {
             </div>
           </div>
 
-          {/* Thumbnails */}
           <div>
             <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-6">
               {products.map((product) => (
@@ -305,7 +298,6 @@ export const Box = (): JSX.Element => {
               ))}
             </div>
 
-            {/* Kontakt Button */}
             <Link to="/contact" className="block w-full">
               <Button className="w-full relative bg-[#BFD9DC] text-black px-6 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300 rounded-none">
                 Kontakt
