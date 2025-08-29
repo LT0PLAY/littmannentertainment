@@ -113,9 +113,9 @@ const products: Product[] = [
     id: 4,
     title: "CONSULTANCY",
     description: "Expert advice in live entertainment, logistics, and production.",
-    image: "https://www.gstatic.com/webp/gallery/4.jpg",
-    background: "https://www.gstatic.com/webp/gallery/3.jpg",
-    thumbnail: "https://www.gstatic.com/webp/gallery/4.jpg",
+    image: "Licenses.webp",
+    background: "Consultancy_Littmann.webp",
+    thumbnail: "Consultancy.webp",
     instagram: "https://instagram.com/basante",
     buttons: [
       { label: "SERVICES →", url: "/consultancy", external: false },
