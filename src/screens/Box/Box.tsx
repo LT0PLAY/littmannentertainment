@@ -98,7 +98,7 @@ const products: Product[] = [
   },
   {
     id: 3,
-    title: "ARTIST MANAGMENT & AGENCY",
+    title: "ARTIST MANAGEMENT & AGENCY",
     description: "We represent and support international artists across genres.",
     image: "TripleA LENA.webp",
     background: "TripleA.webp",
