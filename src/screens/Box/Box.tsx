@@ -128,13 +128,17 @@ export const Box = (): JSX.Element => {
   const [selectedProduct, setSelectedProduct] = useState<Product>(products[0]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Animations-Flags
+  const [firstOpenInProgress, setFirstOpenInProgress] = useState(false);
+  const [firstOpenDone, setFirstOpenDone] = useState(false);
+  const [nudgeTick, setNudgeTick] = useState(0);
+
   const openTimer = useRef<number | null>(null);
   const closeTimer = useRef<number | null>(null);
   const isHoveringMenu = useRef<boolean>(false);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const xFromRight = window.innerWidth - e.clientX;
-
     if (isHoveringMenu.current) return;
 
     if (xFromRight <= 150) {
@@ -144,7 +148,12 @@ export const Box = (): JSX.Element => {
       }
       if (!isMenuOpen && !openTimer.current) {
         openTimer.current = window.setTimeout(() => {
-          setIsMenuOpen(true);
+          // Erster Kontakt: NUR Animation, KEIN sofortiges setIsMenuOpen -> verhindert JUMP
+          if (!firstOpenDone && !firstOpenInProgress) {
+            setFirstOpenInProgress(true);
+          } else {
+            setIsMenuOpen(true);
+          }
           openTimer.current = null;
         }, 120);
       }
@@ -161,6 +170,14 @@ export const Box = (): JSX.Element => {
       }
     }
   };
+
+  // Periodischer subtiler Nudge, wenn geschlossen & unberührt
+  useEffect(() => {
+    if (isMenuOpen || isHoveringMenu.current) return;
+    const delay = Math.floor(6000 + Math.random() * 3000);
+    const t = window.setTimeout(() => setNudgeTick((x) => x + 1), delay);
+    return () => window.clearTimeout(t);
+  }, [isMenuOpen, nudgeTick]);
 
   useEffect(() => {
     return () => {
@@ -180,6 +197,38 @@ export const Box = (): JSX.Element => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/* Styles für Animationen */}
+      <style>{`
+        /* periodischer sanfter Tease (wenn geschlossen) */
+        @keyframes menuTeaseCycle {
+          0%, 70%, 100% { transform: translateX(92%); }
+          8%            { transform: translateX(90%); }
+          16%           { transform: translateX(86%); }
+          24%           { transform: translateX(89%); }
+          32%           { transform: translateX(87.5%); }
+          40%           { transform: translateX(92%); }
+        }
+        /* einzelner kleiner Nudge */
+        @keyframes menuNudgeOnce {
+          0%   { transform: translateX(92%); }
+          20%  { transform: translateX(88.5%); }
+          40%  { transform: translateX(91%); }
+          60%  { transform: translateX(89.5%); }
+          100% { transform: translateX(92%); }
+        }
+        /* ERSTER KONTAKT: organisches Einfahren (ohne Transition-Konflikt) */
+        @keyframes menuFirstApproach {
+          0%   { transform: translateX(92%); }
+          25%  { transform: translateX(86%); }   /* neugieriges Vorziehen */
+          55%  { transform: translateX(-3%); }   /* sanfter Overshoot rein */
+          75%  { transform: translateX(1.5%); }  /* zurückfedern */
+          100% { transform: translateX(0%); }    /* offen */
+        }
+        .menu--tease { animation: menuTeaseCycle 7s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; }
+        .menu--nudge { animation: menuNudgeOnce 1.8s cubic-bezier(0.22, 1, 0.36, 1) 1; }
+        .menu--firstOpen { animation: menuFirstApproach 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      `}</style>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
 
@@ -234,19 +283,37 @@ export const Box = (): JSX.Element => {
 
         {/* Menü */}
         <div
-          className={`menu-panel fixed right-0 top-0 h-full
-                      w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px]
-                      bg-[#252525]/90 backdrop-blur p-6 sm:p-8 md:p-10 lg:p-12
-                      flex flex-col justify-between z-40
-                      transform transition-transform duration-[900ms] ease-in-out
-                      ${isMenuOpen ? "translate-x-0" : "translate-x-[92%]"}`}
+          className={[
+            "menu-panel fixed right-0 top-0 h-full",
+            "w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px]",
+            "bg-[#252525]/90 backdrop-blur p-6 sm:p-8 md:p-10 lg:p-12",
+            "flex flex-col justify-between z-40",
+            // WICHTIG: Transition nur für normale Zustände, nicht während des ersten Opens
+            firstOpenInProgress ? "transition-none" : "transition-transform duration-[900ms] ease-in-out",
+            // Positionen (kein inline transform, damit CSS-Animation die volle Kontrolle hat)
+            isMenuOpen ? "translate-x-0" : "translate-x-[92%]",
+            // Tease & Nudge nur wenn geschlossen und kein erster Open läuft
+            !isMenuOpen && !firstOpenInProgress && !isHoveringMenu.current ? "will-change-transform" : "",
+            !isMenuOpen && !firstOpenInProgress && !isHoveringMenu.current && nudgeTick ? "menu--nudge" : "",
+            !isMenuOpen && !firstOpenDone && !firstOpenInProgress ? "menu--tease" : "",
+            firstOpenInProgress ? "menu--firstOpen" : "",
+          ].join(" ")}
+          onAnimationEnd={(e) => {
+            // Wenn der erste Open fertig ist, schalten wir in den normalen "offen"-Zustand um.
+            if (firstOpenInProgress && e.animationName === "menuFirstApproach") {
+              setFirstOpenInProgress(false);
+              setFirstOpenDone(true);
+              setIsMenuOpen(true); // jetzt erst aktivieren -> kein Jump
+            }
+          }}
           onMouseEnter={() => {
             isHoveringMenu.current = true;
             if (closeTimer.current) {
               window.clearTimeout(closeTimer.current);
               closeTimer.current = null;
             }
-            setIsMenuOpen(true);
+            // Falls der erste Open noch lief, Animation endet ohnehin gleich; ansonsten normal öffnen
+            if (!firstOpenInProgress) setIsMenuOpen(true);
           }}
           onMouseLeave={() => {
             isHoveringMenu.current = false;
