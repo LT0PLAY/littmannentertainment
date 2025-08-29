@@ -100,9 +100,9 @@ const products: Product[] = [
     id: 3,
     title: "ARTIST MANAGMENT & AGENCY",
     description: "We represent and support international artists across genres.",
-    image: "https://www.gstatic.com/webp/gallery3/1.png",
-    background: "https://www.gstatic.com/webp/gallery3/2_webp_ll.png",
-    thumbnail: "https://www.gstatic.com/webp/gallery/3.jpg",
+    image: "TripleA LENA.webp",
+    background: "TripleA.webp",
+    thumbnail: "Artist.webp",
     instagram: "https://instagram.com/newwaive",
     buttons: [
       { label: "ROSTER →", url: "/artists", external: false },
