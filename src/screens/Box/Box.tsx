@@ -226,8 +226,8 @@ export const Box = (): JSX.Element => {
         .menu--firstOpen { animation: menuFirstApproach 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
       `}</style>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Overlay blockiert keine Klicks */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-10">
