@@ -199,7 +199,6 @@ export const Box = (): JSX.Element => {
     >
       {/* Styles für Animationen */}
       <style>{`
-        /* periodischer sanfter Tease (wenn geschlossen) */
         @keyframes menuTeaseCycle {
           0%, 70%, 100% { transform: translateX(92%); }
           8%            { transform: translateX(90%); }
@@ -208,7 +207,6 @@ export const Box = (): JSX.Element => {
           32%           { transform: translateX(87.5%); }
           40%           { transform: translateX(92%); }
         }
-        /* einzelner kleiner Nudge */
         @keyframes menuNudgeOnce {
           0%   { transform: translateX(92%); }
           20%  { transform: translateX(88.5%); }
@@ -216,13 +214,12 @@ export const Box = (): JSX.Element => {
           60%  { transform: translateX(89.5%); }
           100% { transform: translateX(92%); }
         }
-        /* ERSTER KONTAKT: organisches Einfahren (ohne Transition-Konflikt) */
         @keyframes menuFirstApproach {
           0%   { transform: translateX(92%); }
-          25%  { transform: translateX(86%); }   /* neugieriges Vorziehen */
-          55%  { transform: translateX(-3%); }   /* sanfter Overshoot rein */
-          75%  { transform: translateX(1.5%); }  /* zurückfedern */
-          100% { transform: translateX(0%); }    /* offen */
+          25%  { transform: translateX(86%); }
+          55%  { transform: translateX(-3%); }
+          75%  { transform: translateX(1.5%); }
+          100% { transform: translateX(0%); }
         }
         .menu--tease { animation: menuTeaseCycle 7s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; }
         .menu--nudge { animation: menuNudgeOnce 1.8s cubic-bezier(0.22, 1, 0.36, 1) 1; }
@@ -288,22 +285,18 @@ export const Box = (): JSX.Element => {
             "w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px]",
             "bg-[#252525]/90 backdrop-blur p-6 sm:p-8 md:p-10 lg:p-12",
             "flex flex-col justify-between z-40",
-            // WICHTIG: Transition nur für normale Zustände, nicht während des ersten Opens
             firstOpenInProgress ? "transition-none" : "transition-transform duration-[900ms] ease-in-out",
-            // Positionen (kein inline transform, damit CSS-Animation die volle Kontrolle hat)
             isMenuOpen ? "translate-x-0" : "translate-x-[92%]",
-            // Tease & Nudge nur wenn geschlossen und kein erster Open läuft
             !isMenuOpen && !firstOpenInProgress && !isHoveringMenu.current ? "will-change-transform" : "",
             !isMenuOpen && !firstOpenInProgress && !isHoveringMenu.current && nudgeTick ? "menu--nudge" : "",
             !isMenuOpen && !firstOpenDone && !firstOpenInProgress ? "menu--tease" : "",
             firstOpenInProgress ? "menu--firstOpen" : "",
           ].join(" ")}
           onAnimationEnd={(e) => {
-            // Wenn der erste Open fertig ist, schalten wir in den normalen "offen"-Zustand um.
             if (firstOpenInProgress && e.animationName === "menuFirstApproach") {
               setFirstOpenInProgress(false);
               setFirstOpenDone(true);
-              setIsMenuOpen(true); // jetzt erst aktivieren -> kein Jump
+              setIsMenuOpen(true);
             }
           }}
           onMouseEnter={() => {
@@ -312,7 +305,6 @@ export const Box = (): JSX.Element => {
               window.clearTimeout(closeTimer.current);
               closeTimer.current = null;
             }
-            // Falls der erste Open noch lief, Animation endet ohnehin gleich; ansonsten normal öffnen
             if (!firstOpenInProgress) setIsMenuOpen(true);
           }}
           onMouseLeave={() => {
@@ -334,9 +326,10 @@ export const Box = (): JSX.Element => {
             </p>
 
             <div className="flex justify-center gap-4 mb-6">
-              <Link to="/datenschutz" className="relative overflow-hidden rounded-full inline-block">
+              {/* ✅ Privacy Policy Link korrigiert */}
+              <Link to="/privacy-policy" className="relative overflow-hidden rounded-full inline-block">
                 <Button className="relative bg-[#BFD9DC] text-black rounded-full px-6 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300">
-                  Datenschutz
+                  Privacy Policy
                 </Button>
               </Link>
               <Link to="/impressum" className="relative overflow-hidden rounded-full inline-block">
