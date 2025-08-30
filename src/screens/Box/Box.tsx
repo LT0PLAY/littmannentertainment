@@ -51,7 +51,7 @@ const products: Product[] = [
         </div>
       </div>
     ),
-    image: "LittmannEntertainmant.webp",
+    image: "/LittmannEntertainmant.webp",
     background: "/Concert.webp",
     thumbnail: "/AboutUs.webp",
     instagram: "https://instagram.com",
@@ -83,8 +83,8 @@ const products: Product[] = [
         strategy.
       </p>
     ),
-    image: "LenaLittmann.webp",
-    background: "Live_Conzert.webp",
+    image: "/LenaLittmann.webp",
+    background: "/Live_Conzert.webp",
     thumbnail: "/AboutMe.webp",
     instagram: "https://www.instagram.com/littmannentertainment/",
     buttons: [
@@ -100,9 +100,10 @@ const products: Product[] = [
     id: 3,
     title: "ARTIST MANAGEMENT & AGENCY",
     description: "We represent and support international artists across genres.",
-    image: "TripleA LENA.webp",
-    background: "TripleA.webp",
-    thumbnail: "Artist.webp",
+    // Tipp: besser Datei in public/ auf z. B. /triplea-lena.webp umbenennen
+    image: "/TripleA%20LENA.webp",
+    background: "/TripleA.webp",
+    thumbnail: "/Artist.webp",
     instagram: "https://instagram.com/newwaive",
     buttons: [
       { label: "ROSTER →", url: "/artists", external: false },
@@ -113,9 +114,9 @@ const products: Product[] = [
     id: 4,
     title: "CONSULTANCY",
     description: "Expert advice in live entertainment, logistics, and production.",
-    image: "Licenses.webp",
-    background: "Consultancy_Littmann.webp",
-    thumbnail: "Consultancy.webp",
+    image: "/Licenses.webp",
+    background: "/Consultancy_Littmann.webp",
+    thumbnail: "/Consultancy.webp",
     instagram: "https://instagram.com/basante",
     buttons: [
       { label: "SERVICES →", url: "/consultancy", external: false },
@@ -148,7 +149,6 @@ export const Box = (): JSX.Element => {
       }
       if (!isMenuOpen && !openTimer.current) {
         openTimer.current = window.setTimeout(() => {
-          // Erster Kontakt: NUR Animation, KEIN sofortiges setIsMenuOpen -> verhindert JUMP
           if (!firstOpenDone && !firstOpenInProgress) {
             setFirstOpenInProgress(true);
           } else {
@@ -331,7 +331,6 @@ export const Box = (): JSX.Element => {
                   Privacy Policy
                 </Button>
               </Link>
-              {/* ✅ geändert auf /imprint + Text */}
               <Link to="/imprint" className="relative overflow-hidden rounded-full inline-block">
                 <Button className="relative bg-[#BFD9DC] text-black rounded-full px-6 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300">
                   Imprint
