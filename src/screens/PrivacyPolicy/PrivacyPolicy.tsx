@@ -8,12 +8,12 @@ export default function PrivacyPolicy() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-neutral-950 text-neutral-100 relative">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Overlay blockiert keine Klicks */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
-      {/* ✅ Header mit Home-Link */}
-      <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-10">
-        <Link to="/" className="hover:opacity-80 transition-opacity">
+      {/* Header mit Home-Link */}
+      <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-20">
+        <Link to="/" className="inline-block py-2 px-1 hover:opacity-80 transition-opacity">
           <h1 className="text-xl sm:text-2xl tracking-wider font-light cursor-pointer">
             LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
           </h1>
@@ -22,10 +22,10 @@ export default function PrivacyPolicy() {
 
       <div className="relative z-10 px-6 py-24 sm:py-32 max-w-4xl mx-auto space-y-12">
         {/* Title */}
-        <header className="space-y-3">
+        <div className="space-y-3">
           <h2 className="text-4xl font-bold tracking-tight">Privacy Policy</h2>
           <p className="text-neutral-400">Effective date: 30 August 2025</p>
-        </header>
+        </div>
 
         {/* Sections */}
         <section className="space-y-10 leading-relaxed text-neutral-300">
