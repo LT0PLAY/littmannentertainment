@@ -322,19 +322,19 @@ export const Box = (): JSX.Element => {
               LITTMANN<span className="text-[#BFD9DC]"> INFOS</span>
             </h2>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 text-center">
-             © Copyright | LITTMANN-ENTERTAINMENT | All Rights Reserved
+              © Copyright | LITTMANN-ENTERTAINMENT | All Rights Reserved
             </p>
 
             <div className="flex justify-center gap-4 mb-6">
-              {/* ✅ Privacy Policy Link korrigiert */}
               <Link to="/privacy-policy" className="relative overflow-hidden rounded-full inline-block">
                 <Button className="relative bg-[#BFD9DC] text-black rounded-full px-6 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300">
                   Privacy Policy
                 </Button>
               </Link>
-              <Link to="/impressum" className="relative overflow-hidden rounded-full inline-block">
+              {/* ✅ geändert auf /imprint + Text */}
+              <Link to="/imprint" className="relative overflow-hidden rounded-full inline-block">
                 <Button className="relative bg-[#BFD9DC] text-black rounded-full px-6 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300">
-                  Impressum
+                  Imprint
                 </Button>
               </Link>
             </div>
