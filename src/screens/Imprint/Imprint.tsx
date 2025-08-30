@@ -13,10 +13,10 @@ export default function Imprint() {
 
       {/* Header with home link */}
       <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-10">
-        <Link to="/" className="block hover:opacity-80 transition-opacity">
-          <span className="text-xl sm:text-2xl tracking-wider font-light">
+        <Link to="/" className="hover:opacity-80 transition-opacity">
+          <h1 className="text-xl sm:text-2xl tracking-wider font-light cursor-pointer">
             LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
-          </span>
+          </h1>
         </Link>
       </header>
 
@@ -42,7 +42,14 @@ export default function Imprint() {
           <div>
             <h2 className="text-2xl font-semibold text-white">Contact</h2>
             <p>
-              Email: <a href="mailto:contact@littmann-entertainment.com" className="text-[#BFD9DC] hover:underline">contact@littmann-entertainment.com</a><br />
+              Email:{" "}
+              <a
+                href="mailto:contact@littmann-entertainment.com"
+                className="text-[#BFD9DC] hover:underline"
+              >
+                contact@littmann-entertainment.com
+              </a>
+              <br />
               Phone: +44 [your phone number]
             </p>
           </div>
