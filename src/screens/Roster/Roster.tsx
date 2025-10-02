@@ -10,6 +10,7 @@ interface CastMember {
   image: string;
   thumbnail: string;
   linkUrl: string;
+  tiktokUrl: string;
 }
 
 const castMembers: CastMember[] = [
@@ -22,6 +23,7 @@ const castMembers: CastMember[] = [
     image: "/DulliTV_Wallpaper.webp",
     thumbnail: "/DulliTV.webp",
     linkUrl: "/details/tyrion",
+    tiktokUrl: "https://www.tiktok.com/@dullitv", // TikTok-Link für ID 1
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ const castMembers: CastMember[] = [
     image: "/Artist.webp",
     thumbnail: "/AboutUs.webp",
     linkUrl: "/details/arya",
+    tiktokUrl: "https://www.tiktok.com/@arya", // TikTok-Link für ID 2
   },
   {
     id: 3,
@@ -42,6 +45,7 @@ const castMembers: CastMember[] = [
     image: "/Concert.webp",
     thumbnail: "/Artist.webp",
     linkUrl: "/details/jon",
+    tiktokUrl: "https://www.tiktok.com/@jonsnow", // TikTok-Link für ID 3
   },
   {
     id: 4,
@@ -52,6 +56,7 @@ const castMembers: CastMember[] = [
     image: "/Live_Conzert.webp",
     thumbnail: "/Consultancy.webp",
     linkUrl: "/details/daenerys",
+    tiktokUrl: "https://www.tiktok.com/@daenerys", // TikTok-Link für ID 4
   },
 ];
 
@@ -60,7 +65,7 @@ export const Roster = (): JSX.Element => {
 
   return (
     <div className="relative w-full min-h-screen text-white overflow-hidden">
-      {/* Blurry Background */}
+      {/* Background */}
       <div className="absolute inset-0 -z-10" id="background-wrapper">
         <img
           id="background-image"
@@ -84,7 +89,7 @@ export const Roster = (): JSX.Element => {
       </header>
 
       <div className="flex h-screen pt-20 relative z-10" id="content-wrapper">
-        {/* Left Column - Scrollable Thumbnails */}
+        {/* Left Column - Thumbnails */}
         <div
           id="thumbnails"
           className="w-24 sm:w-32 md:w-40 lg:w-48 flex flex-col items-center py-8 px-4 overflow-y-auto scrollbar-thin scrollbar-thumb-[#BFD9DC]/50 scrollbar-track-transparent"
@@ -115,7 +120,7 @@ export const Roster = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Right Column - Content Area */}
+        {/* Right Column - Content */}
         <div
           id="details"
           className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-8 gap-8 lg:gap-12 overflow-y-auto"
@@ -157,19 +162,22 @@ export const Roster = (): JSX.Element => {
               {selectedMember.description}
             </p>
 
+            {/* TikTok Button */}
             <div className="pt-4" id="button-wrapper">
-              <Link
-                to={selectedMember.linkUrl}
+              <a
+                href={selectedMember.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block relative overflow-hidden rounded-full group"
-                id="details-link"
+                id="tiktok-link"
               >
                 <Button
-                  id="details-button"
+                  id="tiktok-button"
                   className="relative bg-[#BFD9DC] text-black rounded-full px-8 sm:px-12 py-3 sm:py-4 h-auto text-base sm:text-lg font-semibold tracking-wider hover:bg-[#a8c5c9] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_#BFD9DC]"
                 >
-                  Mehr erfahren →
+                  TikTok ansehen →
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
