@@ -53,8 +53,8 @@ const castMembers: CastMember[] = [
     role: "ARE YOU READY?",
     description:
       "You want to achieve more? Then join the team at LittmannEntertainment! Where creativity meets ambition and ideas turn into reality!",
-    image: "/Live_Conzert.webp",
-    thumbnail: "/Consultancy.webp",
+    image: "/AndYou.webp",
+    thumbnail: "/And_You.webp",
     linkUrl: "/details/team",
     tiktokUrl: "https://www.tiktok.com/@daenerys",
   },
