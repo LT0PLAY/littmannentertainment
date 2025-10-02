@@ -52,7 +52,7 @@ const castMembers: CastMember[] = [
     name: "AND YOU?",
     role: "ARE YOU READY?",
     description:
-      "You want to achieve more? Then join the team at LittmannEntertainment! Where creativity meets ambition and ideas turn into reality!",
+      "You want to achieve more? Then join the team at Littmann Entertainment! Where creativity meets ambition and ideas turn into reality!",
     image: "/AndYou.webp",
     thumbnail: "/And_You.webp",
     linkUrl: "/details/team",
