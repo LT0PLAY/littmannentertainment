@@ -38,14 +38,14 @@ const castMembers: CastMember[] = [
   },
   {
     id: 3,
-    name: "Jon Snow",
-    role: "King in the North",
+    name: "Andreas Wallner",
+    role: "MunichMotions",
     description:
-      "Als vermeintlicher Bastard von Ned Stark aufgewachsen, entdeckt Jon seine wahre Herkunft und kämpft für das Überleben der Menschheit gegen die größte Bedrohung aus dem Norden.",
+      "Munichmotions is a creative brand from Munich for the world focused on visual storytelling and modern media production. With a strong eye for cinematic style, dynamic editing, and impactful visuals, Munichmotions brings stories to life across film, digital content, and social platforms. The work combines technical precision with artistic expression, capturing authentic moments while delivering high-quality, engaging productions.",
     image: "/Concert.webp",
     thumbnail: "/Artist.webp",
     linkUrl: "/details/jon",
-    tiktokUrl: "https://www.tiktok.com/@jonsnow",
+    tiktokUrl: "https://linktr.ee/munichmotions?fbclid=PAZXh0bgNhZW0CMTEAAaejAVnXOZXMJO4hQAXhlIwyBUbR0A6iFB7WOoo8uiOipIiwHEehtmPah2QoKA_aem_lbn9d81VTnMZgkThSF_yBg",
   },
   {
     id: 4,
@@ -179,7 +179,7 @@ export const Roster = (): JSX.Element => {
                   id="tiktok-button"
                   className="relative bg-[#BFD9DC] text-black rounded-full px-8 sm:px-12 py-3 sm:py-4 h-auto text-base sm:text-lg font-semibold tracking-wider hover:bg-[#a8c5c9] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_#BFD9DC]"
                 >
-                  TikTok ansehen →
+                  MORE →
                 </Button>
               </a>
             </div>
@@ -194,7 +194,7 @@ export const Roster = (): JSX.Element => {
             id="back-button"
             className="bg-black/50 backdrop-blur text-white rounded-full px-6 py-3 h-auto text-sm font-medium tracking-wider hover:bg-black/70 transition-all duration-300 border border-white/20"
           >
-            ← Zurück
+            ← BACK
           </Button>
         </Link>
       </div>
