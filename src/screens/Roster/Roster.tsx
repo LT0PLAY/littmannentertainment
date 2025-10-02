@@ -23,7 +23,7 @@ const castMembers: CastMember[] = [
     image: "/DulliTV_Wallpaper.webp",
     thumbnail: "/DulliTV.webp",
     linkUrl: "/details/tyrion",
-    tiktokUrl: "https://www.tiktok.com/@dullitv", // TikTok-Link für ID 1
+    tiktokUrl: "https://www.tiktok.com/@dullitv",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const castMembers: CastMember[] = [
     image: "/Artist.webp",
     thumbnail: "/AboutUs.webp",
     linkUrl: "/details/arya",
-    tiktokUrl: "https://www.tiktok.com/@arya", // TikTok-Link für ID 2
+    tiktokUrl: "https://www.tiktok.com/@arya",
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const castMembers: CastMember[] = [
     image: "/Concert.webp",
     thumbnail: "/Artist.webp",
     linkUrl: "/details/jon",
-    tiktokUrl: "https://www.tiktok.com/@jonsnow", // TikTok-Link für ID 3
+    tiktokUrl: "https://www.tiktok.com/@jonsnow",
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ const castMembers: CastMember[] = [
     image: "/Live_Conzert.webp",
     thumbnail: "/Consultancy.webp",
     linkUrl: "/details/daenerys",
-    tiktokUrl: "https://www.tiktok.com/@daenerys", // TikTok-Link für ID 4
+    tiktokUrl: "https://www.tiktok.com/@daenerys",
   },
 ];
 
@@ -65,7 +65,7 @@ export const Roster = (): JSX.Element => {
 
   return (
     <div className="relative w-full min-h-screen text-white overflow-hidden">
-      {/* Background */}
+      {/* Blurry Background */}
       <div className="absolute inset-0 -z-10" id="background-wrapper">
         <img
           id="background-image"
@@ -89,7 +89,7 @@ export const Roster = (): JSX.Element => {
       </header>
 
       <div className="flex h-screen pt-20 relative z-10" id="content-wrapper">
-        {/* Left Column - Thumbnails */}
+        {/* Left Column - Scrollable Thumbnails */}
         <div
           id="thumbnails"
           className="w-24 sm:w-32 md:w-40 lg:w-48 flex flex-col items-center py-8 px-4 overflow-y-auto scrollbar-thin scrollbar-thumb-[#BFD9DC]/50 scrollbar-track-transparent"
@@ -101,7 +101,7 @@ export const Roster = (): JSX.Element => {
                 key={member.id}
                 onClick={() => setSelectedMember(member)}
                 className={`
-                  rounded-full overflow-hidden cursor-pointer transition-all duration-300
+                  relative rounded-full overflow-hidden cursor-pointer transition-all duration-300
                   w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28
                   ${
                     selectedMember.id === member.id
@@ -115,12 +115,16 @@ export const Roster = (): JSX.Element => {
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />
+                {/* Name Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-[10px] sm:text-xs text-center px-1 py-0.5">
+                  {member.name}
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right Column - Content */}
+        {/* Right Column - Content Area */}
         <div
           id="details"
           className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-8 gap-8 lg:gap-12 overflow-y-auto"
