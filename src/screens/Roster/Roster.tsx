@@ -15,12 +15,12 @@ interface CastMember {
 const castMembers: CastMember[] = [
   {
     id: 1,
-    name: "LENA",
-    role: "Hand of the Queen",
+    name: "DulliTV",
+    role: "Dominik Henschel",
     description:
-      "LENS Lannister ist das jüngste Kind von Lord Tywin Lannister und jüngerer Bruder von Cersei und Jaime. Ein scharfer Verstand und unerschütterlicher Wille helfen ihm, Vorurteile zu überwinden.",
-    image: "/LenaLittmann.webp",
-    thumbnail: "/AboutMe.webp",
+      "DulliTV is a digital creator in the comedy space, known for quick wit and a distinctive style that captivates his community. Through creative sketches, sharp observations, and a knack for turning everyday absurdities into laughs, he delivers humor with ease. His content thrives on spontaneity, self-irony, and a direct connection with the audience, creating both authenticity and entertainment.",
+    image: "/DulliTV_Wallpaper.webp",
+    thumbnail: "/DulliTV.webp",
     linkUrl: "/details/tyrion",
   },
   {
