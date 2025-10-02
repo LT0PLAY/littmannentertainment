@@ -1,0 +1,89 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 100%;
+
+    --primary: 267 100% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 267 100% 61%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 267 100% 61%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  }
+}
+
+/* Custom styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#b44af9] to-[#ff63c6];
+}
+
+.gradient-border {
+  @apply bg-gradient-to-br from-[#b44af9] to-[#ff63c6] p-[1px];
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading] {
+  opacity: 0;
+}
+
+img.loaded {
+  opacity: 1;
+}
