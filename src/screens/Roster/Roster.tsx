@@ -49,7 +49,7 @@ const castMembers: CastMember[] = [
   },
   {
     id: 4,
-    name: "AND YOU?,
+    name: "AND YOU?",
     role: "ARE YOU READY?",
     description:
       "You want to achieve more? Then join the team at LittmannEntertainment! Where creativity meets ambition and ideas turn into reality!",
