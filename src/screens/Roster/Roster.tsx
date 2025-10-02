@@ -38,8 +38,8 @@ const castMembers: CastMember[] = [
   },
   {
     id: 3,
-    name: "Andreas Wallner",
-    role: "MunichMotions",
+    name: "MunichMotions",
+    role: "Andreas Wallner",
     description:
       "Munichmotions is a creative brand from Munich for the world focused on visual storytelling and modern media production. With a strong eye for cinematic style, dynamic editing, and impactful visuals, Munichmotions brings stories to life across film, digital content, and social platforms. The work combines technical precision with artistic expression, capturing authentic moments while delivering high-quality, engaging productions.",
     image: "/MunichMotions_Wallpaper.webp",
@@ -94,29 +94,39 @@ export const Roster = (): JSX.Element => {
           id="thumbnails"
           className="w-24 sm:w-32 md:w-40 lg:w-48 flex flex-col items-center py-8 px-4 overflow-y-auto scrollbar-thin scrollbar-thumb-[#BFD9DC]/50 scrollbar-track-transparent"
         >
-          <div className="flex flex-col gap-4 sm:gap-6">
+          <div className="flex flex-col gap-6">
             {castMembers.map((member) => (
               <div
                 id={`thumbnail-${member.id}`}
                 key={member.id}
                 onClick={() => setSelectedMember(member)}
-                className={`
-                  relative rounded-full overflow-hidden cursor-pointer transition-all duration-300
-                  w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28
-                  ${
-                    selectedMember.id === member.id
-                      ? "ring-4 ring-[#BFD9DC] scale-110 shadow-[0_0_20px_#BFD9DC]"
-                      : "ring-2 ring-white/30 hover:ring-[#BFD9DC] hover:scale-105"
-                  }
-                `}
+                className="relative w-16 h-20 sm:w-20 sm:h-24 md:w-24 md:h-28 lg:w-28 lg:h-32 cursor-pointer"
               >
-                <img
-                  src={member.thumbnail}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-                {/* Name Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-[10px] sm:text-xs text-center px-1 py-0.5">
+                {/* Kreis-Thumbnail mit Crop */}
+                <div
+                  className={`
+                    rounded-full overflow-hidden transition-all duration-300 w-full h-[calc(100%-18px)]
+                    ${selectedMember.id === member.id
+                      ? "ring-4 ring-[#BFD9DC] scale-110 shadow-[0_0_20px_#BFD9DC]"
+                      : "ring-2 ring-white/30 hover:ring-[#BFD9DC] hover:scale-105"}
+                  `}
+                >
+                  <img
+                    src={member.thumbnail}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Label außerhalb der Rundung, halb überlappend */}
+                <div
+                  className="
+                    absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/4
+                    px-2 py-0.5 rounded-full
+                    bg-black/70 text-white text-[10px] sm:text-xs whitespace-nowrap
+                    pointer-events-none shadow
+                  "
+                >
                   {member.name}
                 </div>
               </div>
