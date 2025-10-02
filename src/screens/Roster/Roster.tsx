@@ -41,7 +41,7 @@ const castMembers: CastMember[] = [
     name: "MUNICHMOTIONS",
     role: "Andreas Wallner",
     description:
-      "Munichmotions is a creative brand from Munich for the world, focused on visual storytelling and modern media production. With a strong eye for cinematic style, dynamic editing, and impactful visuals, Munichmotions brings stories to life across film, digital content, and social platforms. The work combines technical precision with artistic expression, capturing authentic moments while delivering high-quality, engaging productions.",
+      "Munichmotions is a creative brand from Munich for the world, focusing on visual storytelling and modern media production. With a strong eye for cinematic style, dynamic editing, and impactful visuals, Munichmotions brings stories to life across film, digital content, and social platforms. The work combines technical precision with artistic expression, capturing authentic moments while delivering high-quality, engaging productions.",
     image: "/MunichMotions_Wallpaper.webp",
     thumbnail: "/AndreasWallner.webp",
     linkUrl: "/details/jon",
