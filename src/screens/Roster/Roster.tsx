@@ -59,35 +59,40 @@ export const Roster = (): JSX.Element => {
   const [selectedMember, setSelectedMember] = useState<CastMember>(castMembers[0]);
 
   return (
-    <div
-      className="relative w-full min-h-screen text-white overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
-      }}
-    >
-      {/* Dark textured overlay */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
+    <div className="relative w-full min-h-screen text-white overflow-hidden">
+      {/* Blurry Background */}
+      <div className="absolute inset-0 -z-10" id="background-wrapper">
+        <img
+          id="background-image"
+          src={selectedMember.image}
+          alt={`${selectedMember.name} background`}
+          className="w-full h-full object-cover blur-2xl scale-110"
+        />
+        <div className="absolute inset-0 bg-black/60" id="background-overlay" />
+      </div>
 
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-20 bg-gradient-to-b from-black/60 to-transparent">
-        <Link to="/" className="inline-block">
+      <header
+        id="header"
+        className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-20 bg-gradient-to-b from-black/60 to-transparent"
+      >
+        <Link to="/" className="inline-block" id="header-link">
           <h1 className="text-xl sm:text-2xl tracking-wider font-light hover:text-[#BFD9DC] transition-colors">
             LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
           </h1>
         </Link>
       </header>
 
-      <div className="flex h-screen pt-20 relative z-10">
+      <div className="flex h-screen pt-20 relative z-10" id="content-wrapper">
         {/* Left Column - Scrollable Thumbnails */}
-        <div className="w-24 sm:w-32 md:w-40 lg:w-48 flex flex-col items-center py-8 px-4 overflow-y-auto scrollbar-thin scrollbar-thumb-[#BFD9DC]/50 scrollbar-track-transparent">
+        <div
+          id="thumbnails"
+          className="w-24 sm:w-32 md:w-40 lg:w-48 flex flex-col items-center py-8 px-4 overflow-y-auto scrollbar-thin scrollbar-thumb-[#BFD9DC]/50 scrollbar-track-transparent"
+        >
           <div className="flex flex-col gap-4 sm:gap-6">
             {castMembers.map((member) => (
               <div
+                id={`thumbnail-${member.id}`}
                 key={member.id}
                 onClick={() => setSelectedMember(member)}
                 className={`
@@ -111,27 +116,30 @@ export const Roster = (): JSX.Element => {
         </div>
 
         {/* Right Column - Content Area */}
-        <div className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-8 gap-8 lg:gap-12 overflow-y-auto">
+        <div
+          id="details"
+          className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-8 gap-8 lg:gap-12 overflow-y-auto"
+        >
           {/* Character Image */}
-          <div className="relative flex-shrink-0 w-full max-w-md lg:max-w-lg">
+          <div
+            className="relative flex-shrink-0 w-full max-w-md lg:max-w-lg"
+            id="foreground-image-wrapper"
+          >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
+                id="foreground-image"
                 src={selectedMember.image}
                 alt={selectedMember.name}
                 className="w-full h-auto object-cover transition-all duration-500"
               />
-              {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
-
-            {/* Decorative glow effect */}
             <div className="absolute -inset-4 bg-[#BFD9DC] opacity-20 blur-3xl rounded-full -z-10" />
           </div>
 
           {/* Text Content */}
-          <div className="flex-1 max-w-2xl space-y-6">
-            {/* Title */}
-            <div className="space-y-2">
+          <div className="flex-1 max-w-2xl space-y-6" id="text-content">
+            <div className="space-y-2" id="title-role">
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
                 {selectedMember.name}
               </h2>
@@ -140,21 +148,25 @@ export const Roster = (): JSX.Element => {
               </p>
             </div>
 
-            {/* Divider */}
-            <div className="w-20 h-1 bg-[#BFD9DC] rounded-full" />
+            <div className="w-20 h-1 bg-[#BFD9DC] rounded-full" id="divider" />
 
-            {/* Description */}
-            <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+            <p
+              className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed"
+              id="description"
+            >
               {selectedMember.description}
             </p>
 
-            {/* Button */}
-            <div className="pt-4">
+            <div className="pt-4" id="button-wrapper">
               <Link
                 to={selectedMember.linkUrl}
                 className="inline-block relative overflow-hidden rounded-full group"
+                id="details-link"
               >
-                <Button className="relative bg-[#BFD9DC] text-black rounded-full px-8 sm:px-12 py-3 sm:py-4 h-auto text-base sm:text-lg font-semibold tracking-wider hover:bg-[#a8c5c9] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_#BFD9DC]">
+                <Button
+                  id="details-button"
+                  className="relative bg-[#BFD9DC] text-black rounded-full px-8 sm:px-12 py-3 sm:py-4 h-auto text-base sm:text-lg font-semibold tracking-wider hover:bg-[#a8c5c9] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_#BFD9DC]"
+                >
                   Mehr erfahren →
                 </Button>
               </Link>
@@ -164,9 +176,12 @@ export const Roster = (): JSX.Element => {
       </div>
 
       {/* Back Button */}
-      <div className="fixed bottom-8 left-8 z-20">
-        <Link to="/" className="inline-block">
-          <Button className="bg-black/50 backdrop-blur text-white rounded-full px-6 py-3 h-auto text-sm font-medium tracking-wider hover:bg-black/70 transition-all duration-300 border border-white/20">
+      <div className="fixed bottom-8 left-8 z-20" id="back-button-wrapper">
+        <Link to="/" className="inline-block" id="back-link">
+          <Button
+            id="back-button"
+            className="bg-black/50 backdrop-blur text-white rounded-full px-6 py-3 h-auto text-sm font-medium tracking-wider hover:bg-black/70 transition-all duration-300 border border-white/20"
+          >
             ← Zurück
           </Button>
         </Link>
