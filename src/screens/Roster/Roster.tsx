@@ -22,7 +22,7 @@ const castMembers: CastMember[] = [
       "DulliTV is a digital creator in the comedy space, known for quick wit and a distinctive style that captivates his community. Through creative sketches, sharp observations, and a knack for turning everyday absurdities into laughs, he delivers humor with ease. His content thrives on spontaneity, self-irony, and a direct connection with the audience, creating both authenticity and entertainment.",
     image: "/DulliTV_Wallpaper.webp",
     thumbnail: "/DulliTV.webp",
-    linkUrl: "/details/tyrion",
+    linkUrl: "/details/DulliTV",
     tiktokUrl: "https://www.tiktok.com/@dullitv",
   },
   {
@@ -44,18 +44,18 @@ const castMembers: CastMember[] = [
       "Munichmotions is a creative brand from Munich for the world, focusing on visual storytelling and modern media production. With a strong eye for cinematic style, dynamic editing, and impactful visuals, Munichmotions brings stories to life across film, digital content, and social platforms. The work combines technical precision with artistic expression, capturing authentic moments while delivering high-quality, engaging productions.",
     image: "/MunichMotions_Wallpaper.webp",
     thumbnail: "/AndreasWallner.webp",
-    linkUrl: "/details/jon",
+    linkUrl: "/details/Munichmotions",
     tiktokUrl: "https://linktr.ee/munichmotions?fbclid=PAZXh0bgNhZW0CMTEAAaejAVnXOZXMJO4hQAXhlIwyBUbR0A6iFB7WOoo8uiOipIiwHEehtmPah2QoKA_aem_lbn9d81VTnMZgkThSF_yBg",
   },
   {
     id: 4,
-    name: "Daenerys Targaryen",
-    role: "Mother of Dragons",
+    name: "AND YOU?,
+    role: "ARE YOU READY?",
     description:
-      "Die letzte Überlebende des Hauses Targaryen kämpft sich von der Verbannung zurück zur Macht. Mit drei Drachen und einer wachsenden Armee will sie den Eisernen Thron zurückerobern.",
+      "You want to achieve more? Then join the team at LittmannEntertainment! Where creativity meets ambition and ideas turn into reality!",
     image: "/Live_Conzert.webp",
     thumbnail: "/Consultancy.webp",
-    linkUrl: "/details/daenerys",
+    linkUrl: "/details/team",
     tiktokUrl: "https://www.tiktok.com/@daenerys",
   },
 ];
