@@ -26,7 +26,7 @@ const products: Product[] = [
     description: (
       <div className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify space-y-6">
         <div>
-          <h3 className="text-[#BFD9DC] font-semibold mb-2">At Littmann Entertainment</h3>
+          <h3 className="text-[#BFD9DC] font-semibold mb-2">AT LITTMANN ENTERTAINMENT</h3>
           <p>
             we specialise in artist management and a suite of premium services and expertise
             designed to build and elevate careers.
@@ -64,24 +64,35 @@ const products: Product[] = [
     id: 2,
     title: "MEET THE FOUNDER",
     description: (
-      <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
-        With nearly a decade of frontline experience in the live music and entertainment industry,{" "}
-        <strong>Lena Littmann</strong> has built a career at the intersection of creative excellence
-        and operational precision. She has contributed to major national and international
-        productions, working alongside some of the most renowned superstars in the global music
-        scene.
-        <br />
-        <br />
-        Her expertise spans artist liaison, international touring, high-level event coordination,
-        tour logistics, and artist development—each role reinforcing her reputation for discretion,
-        strategic foresight, and unshakable execution under pressure.
-        <br />
-        <br />
-        Today, as the founder and director of <strong>Littmann Entertainment</strong>, Lena brings a
-        rare blend of industry insight and leadership to the agency. Her approach is defined by
-        clarity, commitment, and a deep respect for the creative process—making her a trusted
-        partner to artists and brands alike.
-      </p>
+      <div className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify space-y-6">
+        <div>
+          <h3 className="text-[#BFD9DC] font-semibold mb-2">PROFILE</h3>
+          <p>
+            With nearly a decade of frontline experience in the live music and entertainment
+            industry, <strong>Lena Littmann</strong> has built a career at the intersection of
+            creative excellence and operational precision. She has contributed to major national and
+            international productions, working alongside some of the most renowned superstars in the
+            global music scene.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-[#BFD9DC] font-semibold mb-2">EXPERTISE</h3>
+          <p>
+            Her expertise spans artist liaison, international touring, high-level event
+            coordination, tour logistics, and artist development—each role reinforcing her
+            reputation for discretion, strategic foresight, and unshakable execution under pressure.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-[#BFD9DC] font-semibold mb-2">LEADERSHIP</h3>
+          <p>
+            Today, as the founder and director of <strong>Littmann Entertainment</strong>, Lena
+            brings a rare blend of industry insight and leadership to the agency. Her approach is
+            defined by clarity, commitment, and a deep respect for the creative process, making her
+            a trusted partner to artists and brands alike.
+          </p>
+        </div>
+      </div>
     ),
     image: "/LenaLittmann.webp",
     background: "/Live_Conzert.webp",
@@ -99,26 +110,36 @@ const products: Product[] = [
   {
     id: 3,
     title: "ARTIST MANAGEMENT & AGENCY",
-    description: "We represent and support international artists across genres.",
+    description: (
+      <div className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify space-y-3">
+        <h3 className="text-[#BFD9DC] font-semibold mb-2">OUR ROSTER</h3>
+        <p>We represent and support international artists across genres.</p>
+      </div>
+    ),
     image: "/TripleA%20LENA.webp",
     background: "/TripleA.webp",
     thumbnail: "/Artist.webp",
-    instagram: "https://instagram.com/newwaive",
+    instagram: "https://www.tiktok.com/@dullitv",
     buttons: [
       { label: "ROSTER →", url: "/roster", external: false },
-      { label: "Instagram →", url: "https://instagram.com/newwaive", external: true },
+      { label: "ARTIST SPOTLIGHT →", url: "https://www.tiktok.com/@dullitv", external: true },
     ],
   },
   {
     id: 4,
     title: "CONSULTANCY",
-    description: "Expert advice in live entertainment, logistics, and production.",
+    description: (
+      <div className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify space-y-3">
+        <h3 className="text-[#BFD9DC] font-semibold mb-2">SERVICES</h3>
+        <p>Expert advice in live entertainment, logistics, and production.</p>
+      </div>
+    ),
     image: "/Licenses.webp",
     background: "/Consultancy_Littmann.webp",
     thumbnail: "/Consultancy.webp",
     instagram: "https://instagram.com/basante",
     buttons: [
-      { label: "SERVICES →", url: "/about", external: false }, // jetzt auf About verlinkt
+      { label: "SERVICES →", url: "/about", external: false }, // Link auf About
       {
         label: "GET IN TOUCH→",
         url: "https://tidycal.com/littmann-entertainment-call-booking/book-a-call",
