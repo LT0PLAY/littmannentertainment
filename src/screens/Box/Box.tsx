@@ -56,7 +56,7 @@ const products: Product[] = [
     thumbnail: "/AboutUs.webp",
     instagram: "https://instagram.com",
     buttons: [
-      { label: "OUR STORY →", url: "/story", external: false },
+      { label: "COOMING SOON →", url: "/", external: false }, // link zur Home-Seite
       // { label: "KEINE AHNUNG →", url: "/contact", external: false }, // deaktiviert
     ],
   },
@@ -247,12 +247,13 @@ export const Box = (): JSX.Element => {
         .menu--firstOpen { animation: menuFirstApproach 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
       `}</style>
 
-      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-
+      {/* Header mit Home-Link */}
       <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-10">
-        <h1 className="text-xl sm:text-2xl tracking-wider font-light">
-          LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
-        </h1>
+        <Link to="/" className="inline-block focus:outline-none">
+          <h1 className="text-xl sm:text-2xl tracking-wider font-light">
+            LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
+          </h1>
+        </Link>
       </header>
 
       <div className="flex h-full relative z-10">
@@ -361,7 +362,7 @@ export const Box = (): JSX.Element => {
                 <div
                   key={product.id}
                   onClick={() => setSelectedProduct(product)}
-                  className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105 shadow-none hover:shadow-[0_0_25px_#BFD9DC]"
+                  className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105 shadow-none hover:shadow=[0_0_25px_#BFD9DC]"
                 >
                   <img
                     src={product.thumbnail}
