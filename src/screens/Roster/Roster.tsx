@@ -31,8 +31,8 @@ const castMembers: CastMember[] = [
     role: "MUSIC ARTIST",
     description:
       "TMARO, born and raised in Nigeria, draws deep inspiration from the rich musical culture of his homeland. His sound blends traditional African rhythms with modern Afrobeats, creating a vibrant fusion that speaks to both emotion and experience. Since his early beginnings, he has gained a steadily growing audience, currently reflecting in 300K monthly listeners and is recognized as one of the most promising artists of his generation. With unwavering dedication and a clear artistic vision, Tmaro continues to shape his craft and inspire the next wave of young musicians worldwide.",
-    image: "/Artist.webp",
-    thumbnail: "/AboutUs.webp",
+    image: "/TMARO.webp",
+    thumbnail: "/TMARO_Wallpaper.webp",
     linkUrl: "/details/arya",
     tiktokUrl: "https://open.spotify.com/intl-de/artist/7zAbW4OBsFLeYw6Ni2Zsgd",
   },
