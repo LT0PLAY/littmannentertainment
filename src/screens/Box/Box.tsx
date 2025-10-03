@@ -56,8 +56,8 @@ const products: Product[] = [
     thumbnail: "/AboutUs.webp",
     instagram: "https://instagram.com",
     buttons: [
-      { label: "COOMING SOON →", url: "/", external: false }, // link zur Home-Seite
-      // { label: "KEINE AHNUNG →", url: "/contact", external: false }, // deaktiviert
+      { label: "COOMING SOON →", url: "/", external: false },
+      // { label: "KEINE AHNUNG →", url: "/contact", external: false },
     ],
   },
   {
@@ -99,12 +99,8 @@ const products: Product[] = [
     thumbnail: "/AboutMe.webp",
     instagram: "https://www.instagram.com/littmannentertainment/",
     buttons: [
-      { label: "ABOUT ME →", url: "/consultancy", external: false }, // bleibt auf Services
-      {
-        label: "INSTAGRAM →",
-        url: "https://www.instagram.com/littmannentertainment/",
-        external: true,
-      },
+      { label: "ABOUT ME →", url: "/consultancy", external: false },
+      { label: "INSTAGRAM →", url: "https://www.instagram.com/littmannentertainment/", external: true },
     ],
   },
   {
@@ -139,12 +135,8 @@ const products: Product[] = [
     thumbnail: "/Consultancy.webp",
     instagram: "https://instagram.com/basante",
     buttons: [
-      { label: "SERVICES →", url: "/about", external: false }, // Link auf About
-      {
-        label: "GET IN TOUCH→",
-        url: "https://tidycal.com/littmann-entertainment-call-booking/book-a-call",
-        external: true,
-      },
+      { label: "SERVICES →", url: "/about", external: false },
+      { label: "GET IN TOUCH→", url: "https://tidycal.com/littmann-entertainment-call-booking/book-a-call", external: true },
     ],
   },
 ];
@@ -247,16 +239,21 @@ export const Box = (): JSX.Element => {
         .menu--firstOpen { animation: menuFirstApproach 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
       `}</style>
 
-      {/* Header mit Home-Link */}
-      <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-10">
-        <Link to="/" className="inline-block focus:outline-none">
+      {/* Fixed Header on top of everything, always clickable */}
+      <header className="fixed top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-[9999] pointer-events-auto">
+        <button
+          type="button"
+          aria-label="Go to ABOUT US"
+          onClick={() => setSelectedProduct(products.find((p) => p.id === 1) ?? products[0])}
+          className="inline-block focus:outline-none"
+        >
           <h1 className="text-xl sm:text-2xl tracking-wider font-light">
             LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
           </h1>
-        </Link>
+        </button>
       </header>
 
-      <div className="flex h-full relative z-10">
+      <div className="flex h-full relative z-10 pt-20 sm:pt-24 md:pt-28">
         <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-end">
           <div className="flex flex-col max-h-[85vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#BFD9DC]/70 scrollbar-track-transparent">
             <h2 className="text-xl sm:text-2xl font-light mb-4">{selectedProduct.title}</h2>
@@ -264,13 +261,7 @@ export const Box = (): JSX.Element => {
             <div className="flex gap-2 sm:gap-4 mt-6 flex-wrap">
               {selectedProduct.buttons.map((btn, i) =>
                 btn.external ? (
-                  <a
-                    key={i}
-                    href={btn.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative overflow-hidden rounded-full"
-                  >
+                  <a key={i} href={btn.url} target="_blank" rel="noopener noreferrer" className="relative overflow-hidden rounded-full">
                     <Button className="relative bg-[#BFD9DC] text-black rounded-full px-4 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300">
                       {btn.label}
                     </Button>
@@ -296,6 +287,7 @@ export const Box = (): JSX.Element => {
           />
         </div>
 
+        {/* Menu panel: only catches clicks when open */}
         <div
           className={[
             "menu-panel fixed right-0 top-0 h-full",
@@ -303,7 +295,7 @@ export const Box = (): JSX.Element => {
             "bg-[#252525]/90 backdrop-blur p-6 sm:p-8 md:p-10 lg:p-12",
             "flex flex-col justify-between z-40",
             firstOpenInProgress ? "transition-none" : "transition-transform duration-[900ms] ease-in-out",
-            isMenuOpen ? "translate-x-0" : "translate-x-[92%]",
+            isMenuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-[92%] pointer-events-none",
             !isMenuOpen && !firstOpenInProgress && !isHoveringMenu.current ? "will-change-transform" : "",
             !isMenuOpen && !firstOpenInProgress && !isHoveringMenu.current && nudgeTick ? "menu--nudge" : "",
             !isMenuOpen && !firstOpenDone && !firstOpenInProgress ? "menu--tease" : "",
@@ -362,7 +354,7 @@ export const Box = (): JSX.Element => {
                 <div
                   key={product.id}
                   onClick={() => setSelectedProduct(product)}
-                  className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105 shadow-none hover:shadow=[0_0_25px_#BFD9DC]"
+                  className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105 shadow-none hover:shadow-[0_0_25px_#BFD9DC]"
                 >
                   <img
                     src={product.thumbnail}
