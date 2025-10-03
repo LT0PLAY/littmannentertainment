@@ -27,14 +27,14 @@ const castMembers: CastMember[] = [
   },
   {
     id: 2,
-    name: "Arya Stark",
-    role: "Faceless Assassin",
+    name: "TMARO",
+    role: "MUSIC ARTIST",
     description:
-      "Die jüngste Tochter von Eddard Stark hat sich von einem rebellischen Mädchen zu einer der gefährlichsten Kämpferinnen entwickelt. Ihre Reise führte sie durch Kontinente und Kulturen.",
+      "TMARO, born and raised in Nigeria, draws deep inspiration from the rich musical culture of his homeland. His sound blends traditional African rhythms with modern Afrobeats, creating a vibrant fusion that speaks to both emotion and experience. Since his early beginnings, he has gained a steadily growing audience, currently reflecting in 300K monthly listeners and is recognized as one of the most promising artists of his generation. With unwavering dedication and a clear artistic vision, Tmaro continues to shape his craft and inspire the next wave of young musicians worldwide.",
     image: "/Artist.webp",
     thumbnail: "/AboutUs.webp",
     linkUrl: "/details/arya",
-    tiktokUrl: "https://www.tiktok.com/@arya",
+    tiktokUrl: "https://open.spotify.com/intl-de/artist/7zAbW4OBsFLeYw6Ni2Zsgd",
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ const castMembers: CastMember[] = [
     image: "/AndYou.webp",
     thumbnail: "/And_You.webp",
     linkUrl: "/details/team",
-    tiktokUrl: "https://www.tiktok.com/@daenerys",
+    tiktokUrl: "https://tidycal.com/littmann-entertainment-call-booking/book-a-call",
   },
 ];
 
