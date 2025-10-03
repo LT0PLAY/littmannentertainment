@@ -57,12 +57,12 @@ const products: Product[] = [
     instagram: "https://instagram.com",
     buttons: [
       { label: "OUR STORY →", url: "/story", external: false },
-      // { label: "KEINE AHNUNG →", url: "/contact", external: false }, // deaktiviert wie gewünscht
+      // { label: "KEINE AHNUNG →", url: "/contact", external: false }, // deaktiviert
     ],
   },
   {
     id: 2,
-    title: "MEET THE FOUNDER", // vorher: ABOUT ME
+    title: "MEET THE FOUNDER",
     description: (
       <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
         With nearly a decade of frontline experience in the live music and entertainment industry,{" "}
@@ -88,7 +88,7 @@ const products: Product[] = [
     thumbnail: "/AboutMe.webp",
     instagram: "https://www.instagram.com/littmannentertainment/",
     buttons: [
-      { label: "ABOUT ME →", url: "/consultancy", external: false }, // Link auf Services/Consultancy
+      { label: "ABOUT ME →", url: "/consultancy", external: false }, // bleibt auf Services
       {
         label: "INSTAGRAM →",
         url: "https://www.instagram.com/littmannentertainment/",
@@ -100,7 +100,6 @@ const products: Product[] = [
     id: 3,
     title: "ARTIST MANAGEMENT & AGENCY",
     description: "We represent and support international artists across genres.",
-    // Tipp: besser Datei in public/ auf z. B. /triplea-lena.webp umbenennen
     image: "/TripleA%20LENA.webp",
     background: "/TripleA.webp",
     thumbnail: "/Artist.webp",
@@ -119,11 +118,11 @@ const products: Product[] = [
     thumbnail: "/Consultancy.webp",
     instagram: "https://instagram.com/basante",
     buttons: [
-      { label: "SERVICES →", url: "/consultancy", external: false },
+      { label: "SERVICES →", url: "/about", external: false }, // jetzt auf About verlinkt
       {
         label: "GET IN TOUCH→",
         url: "https://tidycal.com/littmann-entertainment-call-booking/book-a-call",
-        external: true, // extern wie gewünscht
+        external: true,
       },
     ],
   },
@@ -133,7 +132,6 @@ export const Box = (): JSX.Element => {
   const [selectedProduct, setSelectedProduct] = useState<Product>(products[0]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Animations-Flags
   const [firstOpenInProgress, setFirstOpenInProgress] = useState(false);
   const [firstOpenDone, setFirstOpenDone] = useState(false);
   const [nudgeTick, setNudgeTick] = useState(0);
@@ -175,7 +173,6 @@ export const Box = (): JSX.Element => {
     }
   };
 
-  // Periodischer subtiler Nudge, wenn geschlossen & unberührt
   useEffect(() => {
     if (isMenuOpen || isHoveringMenu.current) return;
     const delay = Math.floor(6000 + Math.random() * 3000);
@@ -201,7 +198,6 @@ export const Box = (): JSX.Element => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Styles für Animationen */}
       <style>{`
         @keyframes menuTeaseCycle {
           0%, 70%, 100% { transform: translateX(92%); }
@@ -230,10 +226,8 @@ export const Box = (): JSX.Element => {
         .menu--firstOpen { animation: menuFirstApproach 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
       `}</style>
 
-      {/* Overlay blockiert keine Klicks */}
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
-      {/* Header */}
       <header className="absolute top-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-10">
         <h1 className="text-xl sm:text-2xl tracking-wider font-light">
           LITTMANN<span className="text-[#BFD9DC]">ENTERTAINMENT</span>GROUP
@@ -241,7 +235,6 @@ export const Box = (): JSX.Element => {
       </header>
 
       <div className="flex h-full relative z-10">
-        {/* Linke Spalte */}
         <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-end">
           <div className="flex flex-col max-h-[85vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#BFD9DC]/70 scrollbar-track-transparent">
             <h2 className="text-xl sm:text-2xl font-light mb-4">{selectedProduct.title}</h2>
@@ -272,7 +265,6 @@ export const Box = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Rechte Fläche */}
         <div className="flex-1 relative">
           <div className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-[#BFD9DC] opacity-20 blur-3xl pointer-events-none" />
           <img
@@ -282,7 +274,6 @@ export const Box = (): JSX.Element => {
           />
         </div>
 
-        {/* Menü */}
         <div
           className={[
             "menu-panel fixed right-0 top-0 h-full",
@@ -360,7 +351,6 @@ export const Box = (): JSX.Element => {
               ))}
             </div>
 
-            {/* Kontakt-Button auf Tidycal verlinken */}
             <a
               href="https://tidycal.com/littmann-entertainment-call-booking/book-a-call"
               target="_blank"
