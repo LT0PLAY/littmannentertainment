@@ -57,12 +57,12 @@ const products: Product[] = [
     instagram: "https://instagram.com",
     buttons: [
       { label: "OUR STORY →", url: "/story", external: false },
-      { label: "KEINE AHNUNG →", url: "/contact", external: false },
+      // { label: "KEINE AHNUNG →", url: "/contact", external: false }, // deaktiviert wie gewünscht
     ],
   },
   {
     id: 2,
-    title: "ABOUT ME",
+    title: "MEET THE FOUNDER", // vorher: ABOUT ME
     description: (
       <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
         With nearly a decade of frontline experience in the live music and entertainment industry,{" "}
@@ -88,7 +88,7 @@ const products: Product[] = [
     thumbnail: "/AboutMe.webp",
     instagram: "https://www.instagram.com/littmannentertainment/",
     buttons: [
-      { label: "ABOUT ME →", url: "/about", external: false },
+      { label: "ABOUT ME →", url: "/consultancy", external: false }, // Link auf Services/Consultancy
       {
         label: "INSTAGRAM →",
         url: "https://www.instagram.com/littmannentertainment/",
@@ -120,7 +120,11 @@ const products: Product[] = [
     instagram: "https://instagram.com/basante",
     buttons: [
       { label: "SERVICES →", url: "/consultancy", external: false },
-      { label: "GET IN TOUCH→", url: "/contact", external: false },
+      {
+        label: "GET IN TOUCH→",
+        url: "https://tidycal.com/littmann-entertainment-call-booking/book-a-call",
+        external: true, // extern wie gewünscht
+      },
     ],
   },
 ];
@@ -356,11 +360,17 @@ export const Box = (): JSX.Element => {
               ))}
             </div>
 
-            <Link to="/contact" className="block w-full">
+            {/* Kontakt-Button auf Tidycal verlinken */}
+            <a
+              href="https://tidycal.com/littmann-entertainment-call-booking/book-a-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
+            >
               <Button className="w-full relative bg-[#BFD9DC] text-black px-6 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium tracking-wider hover:bg-[#a8c5c9] transition-all duration-300 rounded-none">
                 Kontakt
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
