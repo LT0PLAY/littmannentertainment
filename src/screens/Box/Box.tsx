@@ -51,7 +51,7 @@ const products: Product[] = [
         </div>
       </div>
     ),
-    image: "/LittmannEntertainmant.webp",
+    image: "/LittmannEntertainment.webp",
     background: "/Concert.webp",
     thumbnail: "/AboutUs.webp",
     instagram: "https://instagram.com",
