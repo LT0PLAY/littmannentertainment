@@ -159,9 +159,18 @@ export const Roster = (): JSX.Element => {
           {/* Text Content */}
           <div className="flex-1 max-w-2xl space-y-6" id="text-content">
             <div className="space-y-2" id="title-role">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+              {/* 👇 Änderung hier */}
+              <h2
+                className={`font-bold tracking-tight text-white ${
+                  selectedMember.id === 4
+                    ? "text-2xl sm:text-3xl md:text-4xl" // 👈 kleinere Schriftgröße nur bei ID 4
+                    : "text-4xl sm:text-5xl md:text-6xl" // 👈 Standard
+                }`}
+              >
                 {selectedMember.name}
               </h2>
+              {/* 👆 Ende Änderung */}
+
               <p className="text-lg sm:text-xl text-[#BFD9DC] font-light tracking-wide">
                 {selectedMember.role}
               </p>
