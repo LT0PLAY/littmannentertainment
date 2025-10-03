@@ -65,22 +65,22 @@ const products: Product[] = [
     title: "ABOUT ME",
     description: (
       <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
-        With nearly a decade of hands-on experience in the live music and entertainment industry,{" "}
-        <strong>Lena</strong> has worked with some of the biggest names in the business –
-        <strong> The Red Hot Chili Peppers</strong>, <strong>Tom Jones</strong>,{" "}
-        <strong>Shania Twain</strong>, and high-profile productions like the{" "}
-        <strong>MTV Awards</strong> and collaborations involving <strong>Quentin Tarantino</strong>{" "}
-        and the <strong>Bon Jovi family</strong>, to name a few.
+        With nearly a decade of frontline experience in the live music and entertainment industry,{" "}
+        <strong>Lena Littmann</strong> has built a career at the intersection of creative excellence
+        and operational precision. She has contributed to major national and international
+        productions, working alongside some of the most renowned superstars in the global music
+        scene.
         <br />
         <br />
-        From national productions to international touring,
+        Her expertise spans artist liaison, international touring, high-level event coordination,
+        tour logistics, and artist development—each role reinforcing her reputation for discretion,
+        strategic foresight, and unshakable execution under pressure.
         <br />
         <br />
-        Lena’s career has been built on <strong>precision</strong>, <strong>discretion</strong>, and
-        deep industry insight. Her background spans from <strong>artist liaison</strong>,{" "}
-        <strong>tour logistics</strong>, and high-level <strong>event coordination</strong> – making
-        her uniquely positioned to lead <strong>Littmann Entertainment</strong> with both heart and
-        strategy.
+        Today, as the founder and director of <strong>Littmann Entertainment</strong>, Lena brings a
+        rare blend of industry insight and leadership to the agency. Her approach is defined by
+        clarity, commitment, and a deep respect for the creative process—making her a trusted
+        partner to artists and brands alike.
       </p>
     ),
     image: "/LenaLittmann.webp",
